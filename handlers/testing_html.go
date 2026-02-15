@@ -248,46 +248,14 @@ const testingHTML = `
             box-shadow: 0 0 15px rgba(58,134,255,0.3);
         }
 
-        .glitch {
-            position: relative;
-        }
-
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0.8;
-        }
-
-        .glitch::before {
-            animation: glitch 0.3s infinite;
-            color: #E1C4E9;
-            z-index: -1;
-        }
-
-        .glitch::after {
-            animation: glitch 0.3s infinite reverse;
-            color: #232323;
-            z-index: -2;
-        }
-
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
-        }
+        
     </style>
 </head>
 <body>
     
     <div class="container">
         <header>
-            <h1 class="glitch">⚡ ORIGAMI API TESTER ⚡</h1>
+            <h1>⚡ ORIGAMI API TESTER ⚡</h1>
             <p class="subtitle">[ CYBERPUNK INTERFACE v2.0 ]</p>
         </header>
 
