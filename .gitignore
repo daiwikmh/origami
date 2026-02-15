@@ -1,0 +1,60 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+main
+app
+bin/
+
+# Build output
+build/
+dist/
+
+# Go build cache
+*.test
+*.out
+
+# Dependency directories (optional, if not using modules)
+vendor/
+
+# Go modules (keep these!)
+# DO NOT ignore go.mod and go.sum
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Env files (IMPORTANT)
+.env
+.env.*
+
+# Coverage
+coverage.out
+
+# Temporary files
+tmp/
+temp/
+
+# Render / deployment
+*.tar
+*.gz
+
+# Node (if you later add frontend build tools)
+node_modules/
+
+# Mac / Linux junk
+*.bak
+
+# Debug
+debug
