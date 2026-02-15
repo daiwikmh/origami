@@ -166,48 +166,6 @@ curl -H "Authorization: Bearer YOUR_API_KEY" \
 
 ---
 
-## 💻 Development
-
-### Project Structure
-```
-inject/
-├── main.go              # Entry point
-├── routes.go            # Route definitions
-├── auth/
-│   └── keystore.go      # API key management
-├── cache/
-│   └── data_cache.go    # In-memory cache
-├── clients/
-│   ├── injective.go     # Injective API client
-│   └── trades.go        # Trade data client
-├── handlers/
-│   ├── admin_handlers.go     # Admin endpoints
-│   ├── analytics_handlers.go # Analytics endpoints
-│   ├── market_handlers.go    # Market endpoints
-│   ├── nft_handlers.go       # NFT verification
-│   ├── signal_handlers.go    # Signal endpoints
-│   ├── dashboard_html.go     # Dashboard UI
-│   ├── testing_html.go       # API tester UI
-│   └── docs_html.go          # Developer docs
-├── middleware/
-│   ├── auth.go          # Authentication
-│   ├── ratelimit.go     # Rate limiting
-│   └── usage.go         # Usage tracking
-├── models/
-│   ├── apikey.go        # API key models
-│   ├── analytics.go     # Analytics models
-│   ├── market.go        # Market models
-│   └── trade.go         # Trade models
-├── services/
-│   ├── analytics.go     # Analytics logic
-│   └── market.go        # Market logic
-├── utils/
-│   ├── math_helpers.go  # Math utilities
-│   └── parse_helpers.go # Parsing utilities
-└── workers/
-    └── data_collector.go # Background workers
-```
-
 ### Local Development
 ```bash
 # Run in development mode
