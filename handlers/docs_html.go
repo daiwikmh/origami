@@ -264,7 +264,7 @@ const docsHTML = `
             <h3>Example Request</h3>
             <pre>
 curl -H "Authorization: Bearer og_your_api_key_here" \\
-     https://api.origami.com/origami/markets</pre>
+     https://origami-8kv1.onrender.com/origami/markets</pre>
 
             <h3>Authentication Errors</h3>
             <table>
@@ -327,7 +327,7 @@ curl -H "Authorization: Bearer og_your_api_key_here" \\
                 <p>Returns all available spot markets from Injective.</p>
                 <pre>
 curl -H "Authorization: Bearer YOUR_API_KEY" \\
-     https://api.origami.com/origami/markets</pre>
+     https://origami-8kv1.onrender.com/origami/markets</pre>
                 <div class="response-example">
                     <strong>Response:</strong>
                     <pre>
@@ -365,7 +365,7 @@ curl -H "Authorization: Bearer YOUR_API_KEY" \\
                 </div>
                 <pre>
 curl -H "Authorization: Bearer YOUR_API_KEY" \\
-     https://api.origami.com/origami/markets/MARKET_ID/analytics</pre>
+     https://origami-8kv1.onrender.com/origami/markets/MARKET_ID/analytics</pre>
                 <div class="response-example">
                     <strong>Response:</strong>
                     <pre>
@@ -420,7 +420,7 @@ curl -H "Authorization: Bearer YOUR_API_KEY" \\
                 </div>
                 <pre>
 curl -H "Authorization: Bearer YOUR_API_KEY" \\
-     "https://api.origami.com/origami/signals/trending?limit=5"</pre>
+     "https://origami-8kv1.onrender.com/origami/signals/trending?limit=5"</pre>
                 <div class="response-example">
                     <strong>Response:</strong>
                     <pre>
@@ -478,7 +478,7 @@ curl -H "Authorization: Bearer YOUR_API_KEY" \\
                 </div>
                 <pre>
 curl -H "Authorization: Bearer YOUR_API_KEY" \\
-     https://api.origami.com/origami/nft/verify/0x0d79347CB8748FC6bbB1d425b99a4f44e63826c9</pre>
+     https://origami-8kv1.onrender.com/origami/nft/verify/0x0d79347CB8748FC6bbB1d425b99a4f44e63826c9</pre>
                 <div class="response-example">
                     <strong>Response:</strong>
                     <pre>
@@ -502,7 +502,7 @@ curl -X POST \\
      -H "Authorization: Bearer YOUR_API_KEY" \\
      -H "Content-Type: application/json" \\
      -d '{"addresses": ["0x...", "0x..."]}' \\
-     https://api.origami.com/origami/nft/verify/batch</pre>
+     https://origami-8kv1.onrender.com/origami/nft/verify/batch</pre>
                 <div class="response-example">
                     <strong>Response:</strong>
                     <pre>
@@ -595,7 +595,7 @@ print(markets)</pre>
             <h3>cURL</h3>
             <pre>
 curl -H "Authorization: Bearer og_your_api_key" \\
-     https://api.origami.com/origami/signals/trending?limit=5</pre>
+     https://origami-8kv1.onrender.com/origami/signals/trending?limit=5</pre>
 
             <h3>React Hook</h3>
             <pre>

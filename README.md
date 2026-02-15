@@ -2,7 +2,7 @@
 
 **Production-ready Injective intelligence API platform with authentication, rate limiting, and real-time analytics.**
 
-🌐 **Live Demo:** https://origami-p4k4.onrender.com/
+🌐 **Live Demo:** https://origami-8kv1.onrender.com/
 
 ---
 
@@ -71,7 +71,7 @@ All `/origami/*` endpoints require authentication:
 
 ```bash
 curl -H "Authorization: Bearer YOUR_API_KEY" \
-     https://origami-p4k4.onrender.com/origami/markets
+     https://origami-8kv1.onrender.com/origami/markets
 ```
 
 ### Example Endpoints
@@ -79,19 +79,19 @@ curl -H "Authorization: Bearer YOUR_API_KEY" \
 **Get Trending Markets:**
 ```bash
 curl -H "Authorization: Bearer YOUR_API_KEY" \
-     "https://origami-p4k4.onrender.com/origami/signals/trending?limit=5"
+     "https://origami-8kv1.onrender.com/origami/signals/trending?limit=5"
 ```
 
 **Get Market Analytics:**
 ```bash
 curl -H "Authorization: Bearer YOUR_API_KEY" \
-     "https://origami-p4k4.onrender.com/origami/markets/MARKET_ID/analytics"
+     "https://origami-8kv1.onrender.com/origami/markets/MARKET_ID/analytics"
 ```
 
 **Verify NFT Ownership:**
 ```bash
 curl -H "Authorization: Bearer YOUR_API_KEY" \
-     "https://origami-p4k4.onrender.com/origami/nft/verify/0xYourWalletAddress"
+     "https://origami-8kv1.onrender.com/origami/nft/verify/0xYourWalletAddress"
 ```
 
 **Response:**
@@ -108,13 +108,13 @@ curl -H "Authorization: Bearer YOUR_API_KEY" \
 
 ## 🌐 Live Deployment
 
-**Production URL:** https://origami-p4k4.onrender.com/
+**Production URL:** https://origami-8kv1.onrender.com/
 
 ### Public Pages
-- **Dashboard:** https://origami-p4k4.onrender.com/
-- **API Tester:** https://origami-p4k4.onrender.com/test
-- **Documentation:** https://origami-p4k4.onrender.com/docs
-- **System Info:** https://origami-p4k4.onrender.com/info
+- **Dashboard:** https://origami-8kv1.onrender.com/
+- **API Tester:** https://origami-8kv1.onrender.com/test
+- **Documentation:** https://origami-8kv1.onrender.com/docs
+- **System Info:** https://origami-8kv1.onrender.com/info
 
 ### Admin Endpoints (No Auth - Demo Only)
 - `POST /admin/keys/generate` - Generate new API key
@@ -143,14 +143,14 @@ curl -H "Authorization: Bearer YOUR_API_KEY" \
 ## 🔑 API Key Management
 
 ### Generate Key (Dashboard)
-1. Visit https://origami-p4k4.onrender.com/
+1. Visit https://origami-8kv1.onrender.com/
 2. Enter key name and rate limit
 3. Click "Generate API Key"
 4. **Save the key immediately** (shown only once)
 
 ### Generate Key (API)
 ```bash
-curl -X POST https://origami-p4k4.onrender.com/admin/keys/generate \
+curl -X POST https://origami-8kv1.onrender.com/admin/keys/generate \
   -H "Content-Type: application/json" \
   -d '{
     "name": "My App",
@@ -161,7 +161,7 @@ curl -X POST https://origami-p4k4.onrender.com/admin/keys/generate \
 ### Check Usage
 ```bash
 curl -H "Authorization: Bearer YOUR_API_KEY" \
-     https://origami-p4k4.onrender.com/origami/me
+     https://origami-8kv1.onrender.com/origami/me
 ```
 
 ---
@@ -381,7 +381,7 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment guides.
 ## 🧪 Testing
 
 ### Interactive Tester
-Visit https://origami-p4k4.onrender.com/test
+Visit https://origami-8kv1.onrender.com/test
 
 ### Manual Testing
 ```bash
@@ -390,24 +390,24 @@ API_KEY="og_your_key_here"
 
 # Test markets endpoint
 curl -H "Authorization: Bearer $API_KEY" \
-     https://origami-p4k4.onrender.com/origami/markets
+     https://origami-8kv1.onrender.com/origami/markets
 
 # Test trending signals
 curl -H "Authorization: Bearer $API_KEY" \
-     "https://origami-p4k4.onrender.com/origami/signals/trending?limit=5"
+     "https://origami-8kv1.onrender.com/origami/signals/trending?limit=5"
 
 # Test NFT verification
 curl -H "Authorization: Bearer $API_KEY" \
-     "https://origami-p4k4.onrender.com/origami/nft/verify/0xYourAddress"
+     "https://origami-8kv1.onrender.com/origami/nft/verify/0xYourAddress"
 ```
 
 ---
 
 ## 📚 Documentation
 
-- **Developer Docs:** https://origami-p4k4.onrender.com/docs
-- **API Tester:** https://origami-p4k4.onrender.com/test
-- **Dashboard:** https://origami-p4k4.onrender.com/
+- **Developer Docs:** https://origami-8kv1.onrender.com/docs
+- **API Tester:** https://origami-8kv1.onrender.com/test
+- **Dashboard:** https://origami-8kv1.onrender.com/
 - **dApp Integration:** See [DAPP_INTEGRATION.md](./DAPP_INTEGRATION.md)
 - **Deployment Guide:** See [DEPLOYMENT.md](./DEPLOYMENT.md)
 
@@ -418,7 +418,7 @@ curl -H "Authorization: Bearer $API_KEY" \
 ### JavaScript
 ```javascript
 const API_KEY = 'og_your_key';
-const BASE_URL = 'https://origami-p4k4.onrender.com';
+const BASE_URL = 'https://origami-8kv1.onrender.com';
 
 const response = await fetch(`${BASE_URL}/origami/signals/trending?limit=5`, {
   headers: { 'Authorization': `Bearer ${API_KEY}` }
@@ -431,7 +431,7 @@ const data = await response.json();
 import requests
 
 API_KEY = 'og_your_key'
-BASE_URL = 'https://origami-p4k4.onrender.com'
+BASE_URL = 'https://origami-8kv1.onrender.com'
 
 response = requests.get(
     f'{BASE_URL}/origami/signals/trending?limit=5',
@@ -446,7 +446,7 @@ function TrendingMarkets() {
   const [markets, setMarkets] = useState([]);
 
   useEffect(() => {
-    fetch('https://origami-p4k4.onrender.com/origami/signals/trending?limit=5', {
+    fetch('https://origami-8kv1.onrender.com/origami/signals/trending?limit=5', {
       headers: { 'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}` }
     })
     .then(res => res.json())
@@ -488,9 +488,9 @@ MIT License - See LICENSE file for details
 
 ## 📧 Contact
 
-- **Live API:** https://origami-p4k4.onrender.com/
+- **Live API:** https://origami-8kv1.onrender.com/
 - **Issues:** Open a GitHub issue
-- **Docs:** https://origami-p4k4.onrender.com/docs
+- **Docs:** https://origami-8kv1.onrender.com/docs
 
 ---
 
