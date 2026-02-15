@@ -18,24 +18,11 @@ const testingHTML = `
             background-image:
                 repeating-linear-gradient(0deg, transparent, transparent 2px, #0a0a0a 2px, #0a0a0a 4px),
                 linear-gradient(180deg, #000000 0%, #0a0514 50%, #000000 100%);
-            color: #00ff9f;
+            color: #E1C4E9;
             line-height: 1.6;
             min-height: 100vh;
         }
 
-        .scan-line {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00ff9f, transparent);
-            animation: scan 4s linear infinite;
-            pointer-events: none;
-            z-index: 9999;
-        }
-
-        @keyframes scan {
             0% { transform: translateY(0); }
             100% { transform: translateY(100vh); }
         }
@@ -43,11 +30,11 @@ const testingHTML = `
         .container { max-width: 1400px; margin: 0 auto; padding: 20px; position: relative; }
 
         header {
-            background: linear-gradient(135deg, #ff006e 0%, #8338ec 50%, #3a86ff 100%);
+            background: linear-gradient(135deg, #E1C4E9 0%, #232323 50%, #232323 100%);
             padding: 30px 20px;
             text-align: center;
-            border: 2px solid #ff006e;
-            box-shadow: 0 0 30px #ff006e, inset 0 0 30px rgba(255,0,110,0.3);
+            border: 2px solid #E1C4E9;
+            box-shadow: 0 0 30px #E1C4E9, inset 0 0 30px rgba(255,0,110,0.3);
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
@@ -78,7 +65,7 @@ const testingHTML = `
         h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            text-shadow: 0 0 10px #ff006e, 0 0 20px #ff006e, 0 0 30px #ff006e;
+            text-shadow: 0 0 10px #E1C4E9, 0 0 20px #E1C4E9, 0 0 30px #E1C4E9;
             font-weight: 900;
             letter-spacing: 3px;
             position: relative;
@@ -87,7 +74,7 @@ const testingHTML = `
 
         .subtitle {
             font-size: 1em;
-            text-shadow: 0 0 5px #00ff9f;
+            text-shadow: 0 0 5px #E1C4E9;
             position: relative;
             z-index: 1;
         }
@@ -96,7 +83,7 @@ const testingHTML = `
 
         .card {
             background: rgba(10,5,20,0.9);
-            border: 2px solid #8338ec;
+            border: 2px solid #232323;
             border-radius: 0px;
             padding: 25px;
             box-shadow: 0 0 20px rgba(131,56,236,0.5), inset 0 0 20px rgba(131,56,236,0.1);
@@ -110,46 +97,46 @@ const testingHTML = `
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #ff006e, transparent);
+            background: linear-gradient(90deg, transparent, #E1C4E9, transparent);
         }
 
         .card h2 {
             margin-bottom: 20px;
-            color: #ff006e;
-            text-shadow: 0 0 10px #ff006e;
-            border-bottom: 2px solid #8338ec;
+            color: #E1C4E9;
+            text-shadow: 0 0 10px #E1C4E9;
+            border-bottom: 2px solid #232323;
             padding-bottom: 10px;
             font-weight: 900;
         }
 
         .btn {
-            background: linear-gradient(135deg, #ff006e 0%, #8338ec 100%);
+            background: linear-gradient(135deg, #E1C4E9 0%, #232323 100%);
             color: #ffffff;
-            border: 2px solid #ff006e;
+            border: 2px solid #E1C4E9;
             padding: 12px 24px;
             cursor: pointer;
             font-size: 1em;
             font-family: 'Orbitron', monospace;
             font-weight: 700;
             transition: all 0.3s;
-            box-shadow: 0 0 10px #ff006e;
+            box-shadow: 0 0 10px #E1C4E9;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         .btn:hover {
-            box-shadow: 0 0 20px #ff006e, 0 0 30px #ff006e;
+            box-shadow: 0 0 20px #E1C4E9, 0 0 30px #E1C4E9;
             transform: translateY(-2px);
-            background: linear-gradient(135deg, #8338ec 0%, #ff006e 100%);
+            background: linear-gradient(135deg, #232323 0%, #E1C4E9 100%);
         }
 
         input, textarea {
             width: 100%;
             padding: 12px;
             margin: 8px 0;
-            border: 2px solid #3a86ff;
+            border: 2px solid #232323;
             background: rgba(0,0,0,0.8);
-            color: #00ff9f;
+            color: #E1C4E9;
             font-size: 1em;
             font-family: 'Orbitron', monospace;
             box-shadow: inset 0 0 10px rgba(58,134,255,0.3);
@@ -157,15 +144,15 @@ const testingHTML = `
 
         input:focus, textarea:focus {
             outline: none;
-            border-color: #ff006e;
-            box-shadow: 0 0 15px #ff006e, inset 0 0 10px rgba(255,0,110,0.3);
+            border-color: #E1C4E9;
+            box-shadow: 0 0 15px #E1C4E9, inset 0 0 10px rgba(255,0,110,0.3);
         }
 
         .endpoint-list { list-style: none; max-height: 400px; overflow-y: auto; }
 
         .endpoint-list::-webkit-scrollbar { width: 10px; }
         .endpoint-list::-webkit-scrollbar-track { background: #000; }
-        .endpoint-list::-webkit-scrollbar-thumb { background: #8338ec; box-shadow: 0 0 10px #8338ec; }
+        .endpoint-list::-webkit-scrollbar-thumb { background: #232323; box-shadow: 0 0 10px #232323; }
 
         .endpoint-item {
             background: rgba(0,0,0,0.8);
@@ -173,18 +160,18 @@ const testingHTML = `
             margin: 10px 0;
             cursor: pointer;
             border-left: 4px solid transparent;
-            border-right: 2px solid #3a86ff;
+            border-right: 2px solid #232323;
             transition: all 0.3s;
         }
 
         .endpoint-item:hover {
-            border-left-color: #ff006e;
+            border-left-color: #E1C4E9;
             box-shadow: 0 0 15px rgba(255,0,110,0.5);
             transform: translateX(5px);
         }
 
         .endpoint-item.selected {
-            border-left-color: #00ff9f;
+            border-left-color: #E1C4E9;
             background: rgba(131,56,236,0.2);
             box-shadow: 0 0 20px rgba(0,255,159,0.5);
         }
@@ -198,8 +185,8 @@ const testingHTML = `
             box-shadow: 0 0 10px currentColor;
         }
 
-        .method.get { background: #00ff9f; color: #000; }
-        .method.post { background: #ff006e; color: #fff; }
+        .method.get { background: #E1C4E9; color: #000; }
+        .method.post { background: #E1C4E9; color: #fff; }
 
         .nav {
             display: flex;
@@ -209,11 +196,11 @@ const testingHTML = `
         }
 
         .nav a {
-            color: #00ff9f;
+            color: #E1C4E9;
             text-decoration: none;
             padding: 10px 20px;
             background: rgba(0,0,0,0.8);
-            border: 2px solid #3a86ff;
+            border: 2px solid #232323;
             transition: all 0.3s;
             text-transform: uppercase;
             font-weight: 700;
@@ -222,13 +209,13 @@ const testingHTML = `
 
         .nav a:hover {
             background: rgba(131,56,236,0.3);
-            box-shadow: 0 0 15px #3a86ff;
-            border-color: #ff006e;
+            box-shadow: 0 0 15px #232323;
+            border-color: #E1C4E9;
         }
 
         #response {
             background: #000;
-            border: 2px solid #00ff9f;
+            border: 2px solid #E1C4E9;
             padding: 15px;
             margin-top: 20px;
             min-height: 300px;
@@ -247,17 +234,17 @@ const testingHTML = `
             box-shadow: 0 0 10px currentColor;
         }
 
-        .status-200 { background: #00ff9f; color: #000; }
+        .status-200 { background: #E1C4E9; color: #000; }
         .status-400 { background: #ffbe0b; color: #000; }
-        .status-401 { background: #ff006e; color: #fff; }
+        .status-401 { background: #E1C4E9; color: #fff; }
         .status-429 { background: #ff9e00; color: #000; }
-        .status-500 { background: #ff006e; color: #fff; }
+        .status-500 { background: #E1C4E9; color: #fff; }
 
         .info-box {
             background: rgba(58,134,255,0.1);
             padding: 15px;
             margin-bottom: 15px;
-            border-left: 4px solid #3a86ff;
+            border-left: 4px solid #232323;
             box-shadow: 0 0 15px rgba(58,134,255,0.3);
         }
 
@@ -276,13 +263,13 @@ const testingHTML = `
 
         .glitch::before {
             animation: glitch 0.3s infinite;
-            color: #ff006e;
+            color: #E1C4E9;
             z-index: -1;
         }
 
         .glitch::after {
             animation: glitch 0.3s infinite reverse;
-            color: #3a86ff;
+            color: #232323;
             z-index: -2;
         }
 
@@ -297,7 +284,7 @@ const testingHTML = `
     </style>
 </head>
 <body>
-    <div class="scan-line"></div>
+    
     <div class="container">
         <header>
             <h1 class="glitch" data-text="⚡ ORIGAMI API TESTER ⚡">⚡ ORIGAMI API TESTER ⚡</h1>
@@ -375,7 +362,7 @@ const testingHTML = `
                 const item = '<li class="endpoint-item" onclick="selectEndpoint(' + i + ')">' +
                     '<span class="method ' + methodClass + '">' + ep.method + '</span>' +
                     '<strong>' + ep.desc + '</strong>' +
-                    '<div style="font-size: 0.9em; color: #3a86ff; margin-top: 5px;">' + ep.path + '</div>' +
+                    '<div style="font-size: 0.9em; color: #232323; margin-top: 5px;">' + ep.path + '</div>' +
                     '</li>';
                 items.push(item);
             }

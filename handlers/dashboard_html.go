@@ -18,23 +18,10 @@ const dashboardHTML = `
             background-image:
                 repeating-linear-gradient(0deg, transparent, transparent 2px, #0a0a0a 2px, #0a0a0a 4px),
                 linear-gradient(180deg, #000000 0%, #0a0514 50%, #000000 100%);
-            color: #00ff9f;
+            color: #E1C4E9;
             line-height: 1.6;
         }
 
-        .scan-line {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00ff9f, transparent);
-            animation: scan 4s linear infinite;
-            pointer-events: none;
-            z-index: 9999;
-        }
-
-        @keyframes scan {
             0% { transform: translateY(0); }
             100% { transform: translateY(100vh); }
         }
@@ -42,11 +29,11 @@ const dashboardHTML = `
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
         header {
-            background: linear-gradient(135deg, #ff006e 0%, #8338ec 50%, #3a86ff 100%);
+            background: linear-gradient(135deg, #E1C4E9 0%, #232323 50%, #232323 100%);
             padding: 30px 20px;
             text-align: center;
-            border: 2px solid #ff006e;
-            box-shadow: 0 0 30px #ff006e, inset 0 0 30px rgba(255,0,110,0.3);
+            border: 2px solid #E1C4E9;
+            box-shadow: 0 0 30px #E1C4E9, inset 0 0 30px rgba(255,0,110,0.3);
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
@@ -55,19 +42,19 @@ const dashboardHTML = `
         h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            text-shadow: 0 0 10px #ff006e, 0 0 20px #ff006e;
+            text-shadow: 0 0 10px #E1C4E9, 0 0 20px #E1C4E9;
             font-weight: 900;
             letter-spacing: 3px;
         }
 
         .subtitle {
             font-size: 1em;
-            text-shadow: 0 0 5px #00ff9f;
+            text-shadow: 0 0 5px #E1C4E9;
         }
 
         .card {
             background: rgba(10,5,20,0.9);
-            border: 2px solid #8338ec;
+            border: 2px solid #232323;
             padding: 25px;
             margin-bottom: 20px;
             box-shadow: 0 0 20px rgba(131,56,236,0.5), inset 0 0 20px rgba(131,56,236,0.1);
@@ -81,35 +68,35 @@ const dashboardHTML = `
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #ff006e, transparent);
+            background: linear-gradient(90deg, transparent, #E1C4E9, transparent);
         }
 
         .card h2 {
             margin-bottom: 20px;
-            color: #ff006e;
-            text-shadow: 0 0 10px #ff006e;
-            border-bottom: 2px solid #8338ec;
+            color: #E1C4E9;
+            text-shadow: 0 0 10px #E1C4E9;
+            border-bottom: 2px solid #232323;
             padding-bottom: 10px;
             font-weight: 900;
         }
 
         .btn {
-            background: linear-gradient(135deg, #ff006e 0%, #8338ec 100%);
+            background: linear-gradient(135deg, #E1C4E9 0%, #232323 100%);
             color: #ffffff;
-            border: 2px solid #ff006e;
+            border: 2px solid #E1C4E9;
             padding: 12px 24px;
             cursor: pointer;
             font-size: 1em;
             font-family: 'Orbitron', monospace;
             font-weight: 700;
             transition: all 0.3s;
-            box-shadow: 0 0 10px #ff006e;
+            box-shadow: 0 0 10px #E1C4E9;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         .btn:hover {
-            box-shadow: 0 0 20px #ff006e, 0 0 30px #ff006e;
+            box-shadow: 0 0 20px #E1C4E9, 0 0 30px #E1C4E9;
             transform: translateY(-2px);
         }
 
@@ -117,9 +104,9 @@ const dashboardHTML = `
             width: 100%;
             padding: 12px;
             margin: 8px 0;
-            border: 2px solid #3a86ff;
+            border: 2px solid #232323;
             background: rgba(0,0,0,0.8);
-            color: #00ff9f;
+            color: #E1C4E9;
             font-size: 1em;
             font-family: 'Orbitron', monospace;
             box-shadow: inset 0 0 10px rgba(58,134,255,0.3);
@@ -127,8 +114,8 @@ const dashboardHTML = `
 
         input:focus {
             outline: none;
-            border-color: #ff006e;
-            box-shadow: 0 0 15px #ff006e, inset 0 0 10px rgba(255,0,110,0.3);
+            border-color: #E1C4E9;
+            box-shadow: 0 0 15px #E1C4E9, inset 0 0 10px rgba(255,0,110,0.3);
         }
 
         .key-list { list-style: none; }
@@ -137,7 +124,7 @@ const dashboardHTML = `
             background: rgba(0,0,0,0.8);
             padding: 15px;
             margin: 10px 0;
-            border-left: 4px solid #00ff9f;
+            border-left: 4px solid #E1C4E9;
             box-shadow: 0 0 10px rgba(0,255,159,0.3);
         }
 
@@ -147,8 +134,8 @@ const dashboardHTML = `
             padding: 8px;
             display: inline-block;
             margin: 5px 0;
-            border: 1px solid #3a86ff;
-            box-shadow: 0 0 5px #3a86ff;
+            border: 1px solid #232323;
+            box-shadow: 0 0 5px #232323;
         }
 
         .stats-grid {
@@ -162,26 +149,26 @@ const dashboardHTML = `
             background: rgba(0,0,0,0.8);
             padding: 20px;
             text-align: center;
-            border: 2px solid #8338ec;
+            border: 2px solid #232323;
             box-shadow: 0 0 15px rgba(131,56,236,0.5);
         }
 
         .stat-value {
             font-size: 2em;
-            color: #00ff9f;
+            color: #E1C4E9;
             font-weight: bold;
-            text-shadow: 0 0 10px #00ff9f;
+            text-shadow: 0 0 10px #E1C4E9;
         }
 
         .stat-label {
-            color: #3a86ff;
+            color: #232323;
             margin-top: 5px;
             text-transform: uppercase;
             font-size: 0.8em;
         }
 
-        .success { color: #00ff9f; text-shadow: 0 0 5px #00ff9f; }
-        .error { color: #ff006e; text-shadow: 0 0 5px #ff006e; }
+        .success { color: #E1C4E9; text-shadow: 0 0 5px #E1C4E9; }
+        .error { color: #E1C4E9; text-shadow: 0 0 5px #E1C4E9; }
         .warning { color: #ffbe0b; text-shadow: 0 0 5px #ffbe0b; }
 
         .nav {
@@ -192,11 +179,11 @@ const dashboardHTML = `
         }
 
         .nav a {
-            color: #00ff9f;
+            color: #E1C4E9;
             text-decoration: none;
             padding: 10px 20px;
             background: rgba(0,0,0,0.8);
-            border: 2px solid #3a86ff;
+            border: 2px solid #232323;
             transition: all 0.3s;
             text-transform: uppercase;
             font-weight: 700;
@@ -204,8 +191,8 @@ const dashboardHTML = `
 
         .nav a:hover {
             background: rgba(131,56,236,0.3);
-            box-shadow: 0 0 15px #3a86ff;
-            border-color: #ff006e;
+            box-shadow: 0 0 15px #232323;
+            border-color: #E1C4E9;
         }
 
         #message {
@@ -217,25 +204,25 @@ const dashboardHTML = `
 
         #message.success {
             background: rgba(0,255,159,0.1);
-            border-left-color: #00ff9f;
+            border-left-color: #E1C4E9;
             box-shadow: 0 0 10px rgba(0,255,159,0.5);
         }
 
         #message.error {
             background: rgba(255,0,110,0.1);
-            border-left-color: #ff006e;
+            border-left-color: #E1C4E9;
             box-shadow: 0 0 10px rgba(255,0,110,0.5);
         }
 
         #newKeyDisplay {
             background: rgba(0,255,159,0.1);
-            border: 2px solid #00ff9f;
+            border: 2px solid #E1C4E9;
             box-shadow: 0 0 20px rgba(0,255,159,0.3);
         }
     </style>
 </head>
 <body>
-    <div class="scan-line"></div>
+    
     <div class="container">
         <header>
             <h1>⚡ ORIGAMI COMMAND CENTER ⚡</h1>
@@ -333,7 +320,7 @@ const dashboardHTML = `
                         '<div><strong>' + key.name + '</strong> ' + statusBadge + '</div>' +
                         '<div>KEY: <span class="key-value">' + key.key_preview + '</span></div>' +
                         '<div>REQUESTS: ' + requestCount + ' | RATE: ' + key.rate_limit + '/min</div>' +
-                        '<div style="font-size: 0.8em; color: #3a86ff;">CREATED: ' + createdDate + '</div>' +
+                        '<div style="font-size: 0.8em; color: #232323;">CREATED: ' + createdDate + '</div>' +
                         '</li>';
                     items.push(item);
                 }
