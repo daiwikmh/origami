@@ -287,7 +287,7 @@ const testingHTML = `
     
     <div class="container">
         <header>
-            <h1 class="glitch" data-text="⚡ ORIGAMI API TESTER ⚡">⚡ ORIGAMI API TESTER ⚡</h1>
+            <h1 class="glitch">⚡ ORIGAMI API TESTER ⚡</h1>
             <p class="subtitle">[ CYBERPUNK INTERFACE v2.0 ]</p>
         </header>
 
