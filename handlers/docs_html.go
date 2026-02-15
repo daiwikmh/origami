@@ -233,7 +233,7 @@ const docsHTML = `
 
     <div class="container">
         <div class="nav">
-            <a href="/dashboard">Dashboard</a>
+            <a href="/">Dashboard</a>
             <a href="/test">API Tester</a>
             <a href="/docs">Documentation</a>
         </div>
