@@ -287,6 +287,18 @@ const dashboardHTML = `
             setTimeout(function() { msg.style.display = 'none'; }, 5000);
         }
 
+        function copyKey(id, btn) {
+    const text = document.getElementById(id).innerText;
+
+    navigator.clipboard.writeText(text).then(() => {
+        const original = btn.innerText;
+        btn.innerText = "Copied!";
+        setTimeout(() => btn.innerText = original, 1500);
+    }).catch(err => {
+        console.error("Copy failed:", err);
+    });
+}
+
         async function loadStats() {
             try {
                 const res = await fetch('/admin/usage');
@@ -319,7 +331,18 @@ const dashboardHTML = `
 
                     const item = '<li class="key-item">' +
                         '<div><strong>' + key.name + '</strong> ' + statusBadge + '</div>' +
-                        '<div>KEY: <span class="key-value">' + key.key_preview + '</span></div>' +
+const keyId = 'key-' + i;
+
+const item = '<li class="key-item">' +
+    '<div><strong>' + key.name + '</strong> ' + statusBadge + '</div>' +
+    '<div>KEY: <span class="key-value">' + key.key_preview + '</span></div>' +
+    '<code id="' + keyId + '" style="display:none;">' + key.key + '</code>' +
+    '<div>' +
+        '<button onclick="copyKey(\'' + keyId + '\', this)">COPY</button>' +
+    '</div>' +
+    '<div>REQUESTS: ' + requestCount + ' | RATE: ' + key.rate_limit + '/min</div>' +
+    '<div style="font-size: 0.8em; color: #232323;">CREATED: ' + createdDate + '</div>' +
+    '</li>';
                         '<div>REQUESTS: ' + requestCount + ' | RATE: ' + key.rate_limit + '/min</div>' +
                         '<div style="font-size: 0.8em; color: #232323;">CREATED: ' + createdDate + '</div>' +
                         '</li>';
