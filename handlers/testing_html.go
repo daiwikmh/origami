@@ -292,8 +292,10 @@ const testingHTML = `
         </header>
 
         <div class="nav">
-            <a href="/dashboard">◢ DASHBOARD</a>
+            <a href="/">◢ DASHBOARD</a>
             <a href="/test">◢ API TESTER</a>
+                        <a href="/docs">◢ DOCUMENTATION</a>
+
         </div>
 
         <div class="info-box">
