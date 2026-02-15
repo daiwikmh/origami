@@ -11,8 +11,8 @@ func SetupRouter(keyStore *auth.KeyStore) *gin.Engine {
 	r := gin.Default()
 
 	// Public endpoints (no auth required)
-	r.GET("/", handlers.GetSystemInfo)
-	r.GET("/dashboard", handlers.AdminDashboard)
+	r.GET("/info", handlers.GetSystemInfo)
+	r.GET("/", handlers.AdminDashboard)
 	r.GET("/test", handlers.TestAPIEndpoint)
 	r.GET("/docs", handlers.ServeDocs)
 

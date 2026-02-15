@@ -39,7 +39,7 @@ Complete guide for deploying Origami API to production.
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/origami-api.git
+git clone https://github.com/daiwikmh/origami-api.git
 cd origami-api
 ```
 
