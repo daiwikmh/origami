@@ -2,14 +2,15 @@ package clients
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
-const BASE_URL = "https://k8s.mainnet.exchange.injective.network"
+const BASE_URL = "https://sentry.exchange.grpc-web.injective.network:443"
 
 // Fetch all markets
 func FetchMarkets() (map[string]interface{}, error) {
-	resp, err := http.Get(BASE_URL + "/spot/markets")
+	resp, err := http.Get(BASE_URL + "/api/exchange/spot/v1/markets")
 	if err != nil {
 		return nil, err
 	}
@@ -22,7 +23,7 @@ func FetchMarkets() (map[string]interface{}, error) {
 
 // Fetch orderbook
 func FetchOrderbook(marketID string) (map[string]interface{}, error) {
-	url := BASE_URL + "/spot/orderbook?marketId=" + marketID
+	url := fmt.Sprintf("%s/api/exchange/spot/v2/orderbook/%s", BASE_URL, marketID)
 
 	resp, err := http.Get(url)
 	if err != nil {

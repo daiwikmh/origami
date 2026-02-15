@@ -1,8 +1,7 @@
 package handlers
 
 import (
-	// "net/http"
-	"sort"
+	"strconv"
 
 	"github.com/daiwikmh/origami/services"
 	"github.com/gin-gonic/gin"
@@ -53,34 +52,37 @@ func GetLiquidity(c *gin.Context) {
 		return
 	}
 
-	orderbook := ob["orderbook"].(map[string]interface{})
+	// Calculate real liquidity from orderbook depth
+	liquidity := services.CalculateRealLiquidity(ob)
+	depth := services.CalculateOrderbookDepth(ob)
 
-	buys := orderbook["buys"].([]interface{})
-	sells := orderbook["sells"].([]interface{})
-
-	// dummy example
-	liquidity := len(buys) + len(sells)
-
-	c.JSON(200, gin.H{
-		"marketId": id,
-		"liquidity": liquidity,
-	})
-}
-
-// Trending markets (dummy for now)
-func GetTrending(c *gin.Context) {
-	data := []struct {
-		Market string  `json:"market"`
-		Score  float64 `json:"score"`
-	}{
-		{"BTC/USDT", 120},
-		{"ETH/USDT", 90},
-		{"INJ/USDT", 150},
+	response := gin.H{
+		"market_id":       id,
+		"liquidity_score": liquidity,
 	}
 
-	sort.Slice(data, func(i, j int) bool {
-		return data[i].Score > data[j].Score
-	})
+	if depth != nil {
+		response["orderbook_depth"] = depth
+	}
 
-	c.JSON(200, data)
+	c.JSON(200, response)
+}
+
+// Trending markets (using real analytics)
+func GetTrending(c *gin.Context) {
+	limitStr := c.DefaultQuery("limit", "10")
+	limit, err := strconv.Atoi(limitStr)
+	if err != nil || limit <= 0 {
+		limit = 10
+	}
+	if limit > 50 {
+		limit = 50
+	}
+
+	markets := services.GetTopMarkets("trending", limit)
+
+	c.JSON(200, gin.H{
+		"markets": markets,
+		"count":   len(markets),
+	})
 }
