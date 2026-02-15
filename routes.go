@@ -49,6 +49,10 @@ func SetupRouter(keyStore *auth.KeyStore) *gin.Engine {
 		// User endpoints
 		origami.GET("/me", handlers.GetKeyUsage)
 		origami.GET("/me/limits", handlers.GetRateLimitInfo)
+
+		// NFT verification endpoints
+		origami.GET("/nft/verify/:address", handlers.VerifyNFTOwnership)
+		origami.POST("/nft/verify/batch", handlers.BatchVerifyNFTOwnership)
 	}
 
 	return r

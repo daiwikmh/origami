@@ -6,56 +6,252 @@ const dashboardHTML = `
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Origami API - Dashboard</title>
+    <title>ORIGAMI API - COMMAND CENTER</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght:400;700;900&display=swap');
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+
+        body {
+            font-family: 'Orbitron', monospace;
+            background: #000000;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 2px, #0a0a0a 2px, #0a0a0a 4px),
+                linear-gradient(180deg, #000000 0%, #0a0514 50%, #000000 100%);
+            color: #00ff9f;
+            line-height: 1.6;
+        }
+
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ff9f, transparent);
+            animation: scan 4s linear infinite;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center; border-radius: 10px; margin-bottom: 30px; }
-        h1 { font-size: 2.5em; margin-bottom: 10px; }
-        .subtitle { opacity: 0.9; font-size: 1.1em; }
-        .card { background: #1e293b; border-radius: 10px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
-        .card h2 { margin-bottom: 20px; color: #a78bfa; border-bottom: 2px solid #334155; padding-bottom: 10px; }
-        .btn { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 1em; transition: transform 0.2s; }
-        .btn:hover { transform: translateY(-2px); }
-        .btn:active { transform: translateY(0); }
-        input, textarea { width: 100%; padding: 12px; margin: 8px 0; border: 2px solid #334155; border-radius: 6px; background: #0f172a; color: #e2e8f0; font-size: 1em; }
-        input:focus, textarea:focus { outline: none; border-color: #667eea; }
+
+        header {
+            background: linear-gradient(135deg, #ff006e 0%, #8338ec 50%, #3a86ff 100%);
+            padding: 30px 20px;
+            text-align: center;
+            border: 2px solid #ff006e;
+            box-shadow: 0 0 30px #ff006e, inset 0 0 30px rgba(255,0,110,0.3);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #ff006e, 0 0 20px #ff006e;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            font-size: 1em;
+            text-shadow: 0 0 5px #00ff9f;
+        }
+
+        .card {
+            background: rgba(10,5,20,0.9);
+            border: 2px solid #8338ec;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(131,56,236,0.5), inset 0 0 20px rgba(131,56,236,0.1);
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff006e, transparent);
+        }
+
+        .card h2 {
+            margin-bottom: 20px;
+            color: #ff006e;
+            text-shadow: 0 0 10px #ff006e;
+            border-bottom: 2px solid #8338ec;
+            padding-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff006e 0%, #8338ec 100%);
+            color: #ffffff;
+            border: 2px solid #ff006e;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 1em;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px #ff006e;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 20px #ff006e, 0 0 30px #ff006e;
+            transform: translateY(-2px);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #3a86ff;
+            background: rgba(0,0,0,0.8);
+            color: #00ff9f;
+            font-size: 1em;
+            font-family: 'Orbitron', monospace;
+            box-shadow: inset 0 0 10px rgba(58,134,255,0.3);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ff006e;
+            box-shadow: 0 0 15px #ff006e, inset 0 0 10px rgba(255,0,110,0.3);
+        }
+
         .key-list { list-style: none; }
-        .key-item { background: #0f172a; padding: 15px; margin: 10px 0; border-radius: 6px; border-left: 4px solid #667eea; }
-        .key-value { font-family: 'Courier New', monospace; background: #1e293b; padding: 8px; border-radius: 4px; display: inline-block; margin: 5px 0; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-box { background: #0f172a; padding: 20px; border-radius: 6px; text-align: center; }
-        .stat-value { font-size: 2em; color: #a78bfa; font-weight: bold; }
-        .stat-label { color: #94a3b8; margin-top: 5px; }
-        .success { color: #10b981; }
-        .error { color: #ef4444; }
-        .warning { color: #f59e0b; }
-        .nav { display: flex; gap: 15px; justify-content: center; margin: 20px 0; }
-        .nav a { color: #a78bfa; text-decoration: none; padding: 10px 20px; border-radius: 6px; background: #1e293b; transition: background 0.2s; }
-        .nav a:hover { background: #334155; }
-        #message { padding: 15px; border-radius: 6px; margin: 15px 0; display: none; }
-        #message.success { background: #064e3b; border-left: 4px solid #10b981; }
-        #message.error { background: #7f1d1d; border-left: 4px solid #ef4444; }
+
+        .key-item {
+            background: rgba(0,0,0,0.8);
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #00ff9f;
+            box-shadow: 0 0 10px rgba(0,255,159,0.3);
+        }
+
+        .key-value {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            padding: 8px;
+            display: inline-block;
+            margin: 5px 0;
+            border: 1px solid #3a86ff;
+            box-shadow: 0 0 5px #3a86ff;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            background: rgba(0,0,0,0.8);
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #8338ec;
+            box-shadow: 0 0 15px rgba(131,56,236,0.5);
+        }
+
+        .stat-value {
+            font-size: 2em;
+            color: #00ff9f;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00ff9f;
+        }
+
+        .stat-label {
+            color: #3a86ff;
+            margin-top: 5px;
+            text-transform: uppercase;
+            font-size: 0.8em;
+        }
+
+        .success { color: #00ff9f; text-shadow: 0 0 5px #00ff9f; }
+        .error { color: #ff006e; text-shadow: 0 0 5px #ff006e; }
+        .warning { color: #ffbe0b; text-shadow: 0 0 5px #ffbe0b; }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .nav a {
+            color: #00ff9f;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.8);
+            border: 2px solid #3a86ff;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .nav a:hover {
+            background: rgba(131,56,236,0.3);
+            box-shadow: 0 0 15px #3a86ff;
+            border-color: #ff006e;
+        }
+
+        #message {
+            padding: 15px;
+            margin: 15px 0;
+            display: none;
+            border-left: 4px solid;
+        }
+
+        #message.success {
+            background: rgba(0,255,159,0.1);
+            border-left-color: #00ff9f;
+            box-shadow: 0 0 10px rgba(0,255,159,0.5);
+        }
+
+        #message.error {
+            background: rgba(255,0,110,0.1);
+            border-left-color: #ff006e;
+            box-shadow: 0 0 10px rgba(255,0,110,0.5);
+        }
+
+        #newKeyDisplay {
+            background: rgba(0,255,159,0.1);
+            border: 2px solid #00ff9f;
+            box-shadow: 0 0 20px rgba(0,255,159,0.3);
+        }
     </style>
 </head>
 <body>
+    <div class="scan-line"></div>
     <div class="container">
         <header>
-            <h1>🎯 Origami API</h1>
-            <p class="subtitle">Production-Ready Injective Intelligence API Platform</p>
+            <h1>⚡ ORIGAMI COMMAND CENTER ⚡</h1>
+            <p class="subtitle">[ API KEY MANAGEMENT SYSTEM ]</p>
         </header>
 
         <div class="nav">
-            <a href="/dashboard">Dashboard</a>
-            <a href="/test">API Tester</a>
+            <a href="/dashboard">◢ DASHBOARD</a>
+            <a href="/test">◢ API TESTER</a>
         </div>
 
         <div id="message"></div>
 
         <div class="card">
-            <h2>📊 API Usage Statistics</h2>
-            <div class="stats-grid" id="stats">
+            <h2>◢ SYSTEM STATISTICS</h2>
+            <div class="stats-grid">
                 <div class="stat-box">
                     <div class="stat-value" id="totalKeys">-</div>
                     <div class="stat-label">Total Keys</div>
@@ -72,24 +268,24 @@ const dashboardHTML = `
         </div>
 
         <div class="card">
-            <h2>🔑 Generate New API Key</h2>
+            <h2>⚙ GENERATE API KEY</h2>
             <form id="generateForm">
-                <input type="text" id="keyName" placeholder="API Key Name (e.g., Production App)" required>
-                <input type="number" id="rateLimit" placeholder="Rate Limit (requests/minute, default: 100)" min="1" max="10000">
-                <button type="submit" class="btn">Generate API Key</button>
+                <input type="text" id="keyName" placeholder="KEY NAME (e.g., Production App)" required>
+                <input type="number" id="rateLimit" placeholder="RATE LIMIT (requests/minute, default: 100)" min="1" max="10000">
+                <button type="submit" class="btn">⚡ GENERATE KEY</button>
             </form>
-            <div id="newKeyDisplay" style="display: none; margin-top: 20px; background: #0f172a; padding: 20px; border-radius: 6px;">
-                <p class="success" style="margin-bottom: 10px;">✓ API Key Generated Successfully!</p>
-                <p><strong>Name:</strong> <span id="newKeyName"></span></p>
-                <p><strong>Key:</strong> <span class="key-value" id="newKeyValue"></span></p>
-                <p><strong>Rate Limit:</strong> <span id="newKeyLimit"></span> requests/minute</p>
-                <p class="warning" style="margin-top: 10px;">⚠️ Save this key now - it won't be shown again!</p>
+            <div id="newKeyDisplay" style="display: none; margin-top: 20px; padding: 20px;">
+                <p class="success" style="margin-bottom: 10px;">✓ API KEY GENERATED</p>
+                <p><strong>NAME:</strong> <span id="newKeyName"></span></p>
+                <p><strong>KEY:</strong> <span class="key-value" id="newKeyValue"></span></p>
+                <p><strong>RATE LIMIT:</strong> <span id="newKeyLimit"></span> req/min</p>
+                <p class="warning" style="margin-top: 10px;">⚠ SAVE THIS KEY - IT WILL NOT BE SHOWN AGAIN</p>
             </div>
         </div>
 
         <div class="card">
-            <h2>📋 Your API Keys</h2>
-            <button class="btn" onclick="loadKeys()">Refresh Keys</button>
+            <h2>◢ ACTIVE API KEYS</h2>
+            <button class="btn" onclick="loadKeys()">⟳ REFRESH</button>
             <ul class="key-list" id="keysList"></ul>
         </div>
     </div>
@@ -122,29 +318,29 @@ const dashboardHTML = `
                 const list = document.getElementById('keysList');
 
                 if (!data.keys || data.keys.length === 0) {
-                    list.innerHTML = '<li class="key-item">No API keys yet</li>';
+                    list.innerHTML = '<li class="key-item">[ NO API KEYS FOUND ]</li>';
                     return;
                 }
 
                 const items = [];
                 for (let i = 0; i < data.keys.length; i++) {
                     const key = data.keys[i];
-                    const statusBadge = key.is_active ? '<span class="success">● Active</span>' : '<span class="error">● Inactive</span>';
+                    const statusBadge = key.is_active ? '<span class="success">● ACTIVE</span>' : '<span class="error">● INACTIVE</span>';
                     const createdDate = new Date(key.created_at).toLocaleString();
                     const requestCount = (key.request_count || 0).toLocaleString();
 
                     const item = '<li class="key-item">' +
                         '<div><strong>' + key.name + '</strong> ' + statusBadge + '</div>' +
-                        '<div>Key: <span class="key-value">' + key.key_preview + '</span></div>' +
-                        '<div>Requests: ' + requestCount + ' | Rate Limit: ' + key.rate_limit + '/min</div>' +
-                        '<div style="font-size: 0.9em; color: #94a3b8;">Created: ' + createdDate + '</div>' +
+                        '<div>KEY: <span class="key-value">' + key.key_preview + '</span></div>' +
+                        '<div>REQUESTS: ' + requestCount + ' | RATE: ' + key.rate_limit + '/min</div>' +
+                        '<div style="font-size: 0.8em; color: #3a86ff;">CREATED: ' + createdDate + '</div>' +
                         '</li>';
                     items.push(item);
                 }
 
                 list.innerHTML = items.join('');
             } catch (err) {
-                showMessage('Error loading keys: ' + err.message, 'error');
+                showMessage('[ ERROR LOADING KEYS: ' + err.message + ' ]', 'error');
             }
         }
 
@@ -171,10 +367,10 @@ const dashboardHTML = `
                     loadKeys();
                     loadStats();
                 } else {
-                    showMessage(data.error || 'Error generating key', 'error');
+                    showMessage('[ ERROR: ' + (data.error || 'Unknown error') + ' ]', 'error');
                 }
             } catch (err) {
-                showMessage('Error: ' + err.message, 'error');
+                showMessage('[ SYSTEM ERROR: ' + err.message + ' ]', 'error');
             }
         });
 

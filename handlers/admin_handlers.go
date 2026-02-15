@@ -206,6 +206,16 @@ func GetSystemInfo(c *gin.Context) {
 			"description": "Get volume leaders",
 			"params":      "?limit=10",
 		},
+		{
+			"path":        "/origami/nft/verify/:address",
+			"method":      "GET",
+			"description": "Verify NFT ownership for an address",
+		},
+		{
+			"path":        "/origami/nft/verify/batch",
+			"method":      "POST",
+			"description": "Batch verify NFT ownership for multiple addresses",
+		},
 	}
 
 	c.JSON(200, gin.H{
